@@ -29,18 +29,8 @@
   "require": {
     "php": "^8.2",
     "ext-json": "*",
-    "ext-pcntl": "*",
-    "ext-posix": "*",
     "vlucas/phpdotenv": "^5.6",
     "predis/predis": "^2.2"
-  },
-  "suggest": {
-    "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol",
-    "ext-curl": "Allows access to Webdis when paired with phpiredis",
-    "ext-pdo": "Required to use the database queue worker.",
-    "ext-filter": "Required to use the SQS queue worker.",
-    "ext-mbstring": "Required to use the database failed job providers.",
-    "pda/pheanstalk": "Required to use the Beanstalk queue driver (^5.0)."
   },
   "support": {
     "issues": "https://github.com/suprunov/qunique/issues",
