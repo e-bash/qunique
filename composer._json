@@ -1,0 +1,54 @@
+{
+  "name": "suprunov/qunique",
+  "description": "A powerful job queue management framework for PHP and Redis",
+  "keywords": [
+    "php",
+    "queue",
+    "job queue",
+    "task queue",
+    "redis",
+    "predis",
+    "background tasks",
+    "framework",
+    "queue management",
+    "async",
+    "concurrency",
+    "task scheduling"
+  ],
+  "homepage": "https://github.com/suprunov/qunique",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sergey Suprunov",
+      "email": "sergeysuprunov@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "predis/predis": "^1.1"
+  },
+  "suggest": {
+    "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol",
+    "ext-curl": "Allows access to Webdis when paired with phpiredis"
+  },
+  "support": {
+    "issues": "https://github.com/suprunov/qunique/issues"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/suprunov"
+    }
+  ],
+  "scripts": {
+    "post-update-cmd": "@php -f tests/apply-patches.php"
+  },
+  "autoload": {
+    "psr-4": {
+      "Qunique\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
