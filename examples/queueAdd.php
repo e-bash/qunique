@@ -8,7 +8,7 @@ error_reporting(0); // Отключает все отчёты об ошибка�
 ini_set('display_errors', '0'); // Отключает отображение ошибок
 
 require __DIR__ . "/../vendor/autoload.php";
-
+//
 Qunique::init();
 
 Qunique::push(
