@@ -1,6 +1,6 @@
 <?php
 
-namespace Cargonomica\Qunique;
+namespace Qunique;
 
 /**
  * Абстрактный класс для задач, которые добавляются в очередь.

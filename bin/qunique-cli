@@ -1,0 +1,110 @@
+#!/usr/bin/env php
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    echo "This script can only be run from the command line.\n";
+    exit(1);
+}
+
+// Справка
+function showHelp(): void
+{
+    echo "Usage: qunique-cli <command> [<object>] [options]\n";
+    echo "\n";
+    echo "Commands:\n";
+    echo "  config                   Configure the application\n";
+    echo "  make:job <object>        Create a new job\n";
+    echo "  clear:queue              Clear the job queue\n";
+    echo "\n";
+    echo "Options:\n";
+    echo "  --install                Install configuration\n";
+    echo "  --queue=<name>           Specify the queue\n";
+    echo "  --tag=<tag>              Add a tag to the job\n";
+    echo "  -n, --no-interaction     Run without user interaction\n";
+    echo "  -r, --reset              Reset the configuration\n";
+    echo "  -h, --help               Display this help message\n";
+    exit(1);
+}
+
+// Разбор аргументов
+$args = getopt("nrih", ["install", "queue::", "tag::", "help"]);
+
+$command = $argv[1] ?? null;
+$object = $argv[2] ?? null;
+
+if (isset($args['h']) || isset($args['help'])) {
+    showHelp();
+}
+
+// Проверка команды
+if (!$command) {
+    echo "Error: Command not specified.\n";
+    showHelp();
+}
+
+// Обработка команд
+switch ($command) {
+    case 'config':
+        handleConfigCommand($args);
+        break;
+
+    case 'make:job':
+        if (!$object) {
+            echo "Error: Object name required for make:job command.\n";
+            showHelp();
+        }
+        handleMakeJobCommand($object, $args);
+        break;
+
+    case 'clear:queue':
+        handleClearQueueCommand($args);
+        break;
+
+    default:
+        echo "Error: Unknown command '$command'.\n";
+        showHelp();
+}
+
+function handleConfigCommand($args): void
+{
+    if (isset($args['install'])) {
+        echo "Installing configuration...\n";
+    } elseif (isset($args['n']) || isset($args['no-interaction'])) {
+        echo "Running configuration in no-interaction mode...\n";
+    } else {
+        echo "Running configuration...\n";
+    }
+}
+
+function handleMakeJobCommand($object, $args): void
+{
+    echo "Creating job: $object\n";
+
+    if (isset($args['tag'])) {
+        $tags = is_array($args['tag']) ? $args['tag'] : [$args['tag']];
+        echo "Tags: " . implode(", ", $tags) . "\n";
+    }
+
+    if (isset($args['queue'])) {
+        echo "Queue: {$args['queue']}\n";
+    }
+
+    if (isset($args['n']) || isset($args['no-interaction'])) {
+        echo "Running in no-interaction mode...\n";
+    }
+
+    if (isset($args['r']) || isset($args['reset'])) {
+        echo "Resetting configuration...\n";
+    }
+}
+
+function handleClearQueueCommand($args): void
+{
+    if (isset($args['queue'])) {
+        echo "Clearing queue: {$args['queue']}\n";
+    } else {
+        echo "Error: Queue name required for clear:queue command.\n";
+        showHelp();
+    }
+}
+
