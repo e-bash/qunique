@@ -1,3 +1,5 @@
+RU:
+
 **Qunique** — это библиотека с открытым исходным кодом, позволяющая быстро и без лишних усилий реализовать в вашем приложении мощный функционал управления очередями задач на основе `Redis`. Она поддерживает интеграцию с проектами на `PHP` и `Node.js`, предоставляя разработчикам все необходимые методы для эффективного управления задачами в очередях.
 
 *Qunique* позволяет легко расширять функциональность, создавая собственные плагины или используя расширения от независимых разработчиков. Вот краткий обзор некоторых популярных плагинов:
@@ -40,15 +42,12 @@
 10. **Документация и примеры**:
     - Полная документация с примерами использования, что упрощает процесс интеграции и обучения разработчиков.
 
-Эти возможности делают **Qunique** мощным инструментом для управления задачами в приложениях, основанных на `Redis`, и обеспечивают гибкость и эффективность при работе с очередями. 
+Эти возможности делают **Qunique** мощным инструментом для управления задачами в приложениях, основанных на `Redis`, и обеспечивают гибкость и эффективность при работе с очередями.
 
+---------------------------------------------------------------
+---------------------------------------------------------------
 
-
------------------------------------------------------
-
-Вот перевод текста на английский:
-
----
+EN:
 
 **Qunique** is an open-source library that allows you to quickly and effortlessly implement powerful task queue management functionality in your application using `Redis`. It supports integration with projects on `PHP` and `Node.js`, providing developers with all the necessary methods for efficient task queue management.
 
@@ -93,6 +92,7 @@ Here is a list of some features of the **Qunique** library, with brief descripti
     - Complete documentation with usage examples, simplifying the integration and learning process for developers.
 
 These features make **Qunique** a powerful tool for task management in applications based on `Redis`, providing flexibility and efficiency when working with queues.
+
 
 ---------------------------------------------------------------
 ---------------------------------------------------------------
